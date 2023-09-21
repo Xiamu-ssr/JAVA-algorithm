@@ -1,6 +1,8 @@
 package org.kmo;
 
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+
 import static org.junit.Assert.*;
 
 public class BinarySearchTest {

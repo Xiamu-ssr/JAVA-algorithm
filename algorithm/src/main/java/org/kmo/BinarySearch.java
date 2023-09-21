@@ -1,14 +1,7 @@
-import java.util.List;
+package org.kmo;
 
 public class BinarySearch {
-    private int[] arr = {1, 2, 4, 6, 7, 9};
-    private int target = 6;
-    public static void main(String[] args) {
-        BinarySearch bs = new BinarySearch();
-        int res = bs.Main();
-        System.out.println(res);
-    }
-    private int Main(){
+    public static int main(int[] arr,int target) {
         int i=0, j=arr.length-1;
         while (i<=j){
             int m = (i+j) / 2;

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /*
 * 二分：旋转数组的最小数字
 * https://www.cyc2018.xyz/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%20%E9%A2%98%E8%A7%A3/11.%20%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97.html#%E9%A2%98%E7%9B%AE%E9%93%BE%E6%8E%A5
+* https://www.nowcoder.com/practice/9f3231a991af4f55b95579b44b7a01ba?tpId=13&tqId=11159&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking&from=cyc_github
 * */
 public class Q1 {
     private ArrayList<Integer> arr;

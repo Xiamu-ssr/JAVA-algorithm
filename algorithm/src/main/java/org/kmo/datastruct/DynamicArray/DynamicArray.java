@@ -21,7 +21,7 @@ public class DynamicArray implements Iterable<Integer>{
     }
 //    自动扩容
 //    提供新添的数量
-    private void capOK(int newnums){
+    private void capUp(int newnums){
         if (size+newnums>capacity){
             int dis = (size+newnums-capacity);
             int newcap = ((dis/onecap) + 1) * onecap;
@@ -31,9 +31,18 @@ public class DynamicArray implements Iterable<Integer>{
             System.arraycopy(tmp,0,arr,0,size);
         }
     }
+    private void capDown(){
+        if(onecap<=capacity-size){
+            int cotfall = ((capacity-size) / 16) * 16;
+            capacity -= cotfall;
+            int[] tmp = arr;
+            arr = new int[capacity];
+            System.arraycopy(tmp,0,arr,0,size);
+        }
+    }
 //    追加
     public void append(int n){
-        capOK(1);
+        capUp(1);
         arr[size++] = n;
     }
 //    插入
@@ -42,7 +51,7 @@ public class DynamicArray implements Iterable<Integer>{
             System.out.println("post error");
             return;
         }
-        capOK(1);
+        capUp(1);
         if (post != size){
             int[] tmp = Arrays.copyOfRange(arr, post, size);
             System.arraycopy(tmp,0,arr,post+1,size-post);
@@ -55,7 +64,7 @@ public class DynamicArray implements Iterable<Integer>{
             System.out.println("post error");
             return;
         }
-        capOK(brr.length);
+        capUp(brr.length);
         if(post != size){
             int[] tmp = Arrays.copyOfRange(arr, post, size);
             System.arraycopy(tmp,0,arr,post+brr.length, size-post);
@@ -72,6 +81,7 @@ public class DynamicArray implements Iterable<Integer>{
         int tmp = arr[size-1];
         arr[size-1] = 0;
         size --;
+        capDown();
         return tmp;
     }
     public int remove(int post){
@@ -79,10 +89,39 @@ public class DynamicArray implements Iterable<Integer>{
             int tmp = arr[post];
             System.arraycopy(arr,post+1,arr,post,size-post-1);
             arr[--size] = 0;
+            capDown();
             return tmp;
         }else {
             System.out.println("error post");
             return 0;
+        }
+    }
+//    开闭区间
+    public void remove(int start,int end){
+        if (0<=start && 0<=end && start<end && end<size){
+            System.arraycopy(arr,end,arr,start,size-end);
+            set(size-(end-start),size,0);
+            size -= (end-start);
+            capDown();
+        }else {
+            System.out.println("error post");
+        }
+    }
+//    改设
+    public void set(int post, int num){
+        if (0<=post && post<size){
+            arr[post]=num;
+        }else {
+            System.out.println("error post");
+        }
+    }
+    public void set(int start, int end, int num){
+        if (0<=start && 0<=end && start<end && end<=size){
+            for (int i=start; i<end; ++i){
+                arr[i] = num;
+            }
+        }else {
+            System.out.println("error post");
         }
     }
 //    打印
@@ -92,6 +131,10 @@ public class DynamicArray implements Iterable<Integer>{
 //    size
     public int size(){
         return size;
+    }
+//    capacity
+    public int capacity(){
+        return capacity;
     }
 //    get
     public int get(int post){

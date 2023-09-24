@@ -1,4 +1,4 @@
-package org.kmo.BinarySearch;
+package org.kmo.algorithm.BinarySearch;
 
 /*
 * x 的平方根

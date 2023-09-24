@@ -1,10 +1,9 @@
-package org.kmo.BinarySearch;
+package org.kmo.algorithm.BinarySearch;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 

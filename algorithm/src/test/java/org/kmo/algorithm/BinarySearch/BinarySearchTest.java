@@ -1,9 +1,7 @@
-package org.kmo.BinarySearch;
+package org.kmo.algorithm.BinarySearch;
 
 import org.junit.Test;
-import org.kmo.BinarySearch.BinarySearch;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 

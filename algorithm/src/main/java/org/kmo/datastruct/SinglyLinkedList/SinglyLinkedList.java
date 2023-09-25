@@ -74,6 +74,12 @@ public class SinglyLinkedList implements Iterable<Integer>{
     public void remove(int index){
         if (index<0 || size<=index){
             throw illegalIndex(index);
+        }else if (index==0){
+            removeFirst();
+        }else {
+            Node p = findIndex(index-1);
+            p.next = p.next.next;
+            size--;
         }
     }
 //    查
